@@ -1,10 +1,10 @@
-# 📱 Monitoreo y Seteo de Sensores - Firebase Realtime Database
+# Monitoreo y Seteo de Sensores - Firebase Realtime Database
 
 Este proyecto es una aplicación Android profesional diseñada para el **monitoreo en tiempo real** y el **control remoto (seteo)** de diversos sensores (Temperatura, Humedad, Velocidad y Presión) utilizando la infraestructura de **Firebase**.
 
 ---
 
-## 🚀 Tecnologías Utilizadas
+## Tecnologías Utilizadas
 
 <p align="center">
   <img src="https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white" alt="Android" />
@@ -16,16 +16,16 @@ Este proyecto es una aplicación Android profesional diseñada para el **monitor
 
 ---
 
-## ✨ Características Principales
+## Características Principales
 
-*   **📊 Monitoreo en Tiempo Real:** Visualización instantánea de datos provenientes de Firebase Realtime Database.
-*   **⚙️ Seteo de Valores:** Interfaz intuitiva para enviar comandos y nuevos valores a los sensores.
-*   **🎨 Interfaz Material Design:** Diseño limpio, centrado y fácil de usar, con iconos descriptivos para cada sensor.
-*   **🌀 Scroll Dinámico:** Soporte para diferentes tamaños de pantalla mediante contenedores desplazables.
+*   **Monitoreo en Tiempo Real:** Visualización instantánea de datos provenientes de Firebase Realtime Database.
+*   **Seteo de Valores:** Interfaz intuitiva para enviar comandos y nuevos valores a los sensores.
+*   **Interfaz Material Design:** Diseño limpio, centrado y fácil de usar, con iconos descriptivos para cada sensor.
+*   **Scroll Dinámico:** Soporte para diferentes tamaños de pantalla mediante contenedores desplazables.
 
 ---
 
-## 📸 Vista Previa del Layout
+## Vista Previa del Layout
 
 | Monitoreo en Tiempo Real | Seteo de Valores |
 | :---: | :---: |
@@ -33,7 +33,7 @@ Este proyecto es una aplicación Android profesional diseñada para el **monitor
 
 ---
 
-## 🛠️ Configuración e Instalación
+## Configuración e Instalación
 
 1.  **Clonar el repositorio:**
     ```bash
@@ -51,7 +51,7 @@ Este proyecto es una aplicación Android profesional diseñada para el **monitor
 
 ---
 
-## 📂 Estructura del Proyecto
+## Estructura del Proyecto
 
 *   `MainActivity.java`: Lógica central, manejo de eventos de Firebase y listeners.
 *   `activity_main.xml`: Diseño de la interfaz de usuario con ScrollView y LinearLayouts.
@@ -59,15 +59,15 @@ Este proyecto es una aplicación Android profesional diseñada para el **monitor
 
 ---
 
-## 🤝 Contribuciones
+## Contribuciones
 
-¡Las contribuciones son bienvenidas! Si tienes ideas para mejorar la aplicación o encontrar errores, siéntete libre de abrir un *Issue* o enviar un *Pull Request*.
+Las contribuciones son bienvenidas. Si tienes ideas para mejorar la aplicación o encontrar errores, siéntete libre de abrir un Issue o enviar un Pull Request.
 
 ---
 
-## 📄 Licencia
+## Licencia
 
 Este proyecto está bajo la licencia MIT.
 
 ---
-<p align="center"> Desarrollado con ❤️ para el monitoreo inteligente </p>
+<p align="center"> Desarrollado para el monitoreo inteligente </p>
