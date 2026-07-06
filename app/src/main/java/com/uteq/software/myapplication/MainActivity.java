@@ -1,15 +1,27 @@
 package com.uteq.software.myapplication;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class MainActivity extends AppCompatActivity {
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
+public class MainActivity extends AppCompatActivity {
+    FirebaseDatabase database;
+    EditText txt_temperatura_edit,txt_humedad_edit,txt_velocidad_edit,txt_sensores_edit;
+    DatabaseReference HumedadRef,presionRef,VelocidadRef,TemperauraRef;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,6 +31,57 @@ public class MainActivity extends AppCompatActivity {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
+        });
+        database = FirebaseDatabase.getInstance();
+        HumedadRef = 	database.getReference("sensores/humedad");
+        presionRef = database.getReference("sensores/presion");
+        VelocidadRef = 	database.getReference("sensores/velocidad");
+        TemperauraRef = 	database.getReference("sensores/temperatura");
+
+        TextView txtTemp=findViewById(R.id.valor_Temperatura);
+        TextView txtHum=findViewById(R.id.valor_Humedad);
+        TextView txtVel=findViewById(R.id.valor_Velocidad);
+        TextView txtPres=findViewById(R.id.valor_Sensores);
+        txt_temperatura_edit=findViewById(R.id.setvalor_Temperatura);
+        txt_humedad_edit=findViewById(R.id.setvalor_Humedad);
+        txt_velocidad_edit=findViewById(R.id.setvalor_Velocidad);
+        txt_sensores_edit=findViewById(R.id.setvalor_Sensores);
+
+        TemperauraRef.addValueEventListener(setListener(txtTemp, "°C"));
+        HumedadRef.addValueEventListener(setListener(txtHum, "%"));
+        VelocidadRef.addValueEventListener(setListener(txtVel, "km/h"));
+        presionRef.addValueEventListener(setListener(txtPres, "hPa"));
+
+    }
+
+    public void clickBotonTemperatura(View view){
+        TemperauraRef.setValue(Float.parseFloat(txt_temperatura_edit.getText().toString()));
+    }
+
+    public void clickBotonHumedad(View view){
+        HumedadRef.setValue(Float.parseFloat(txt_humedad_edit.getText().toString()));
+    }
+
+    public void clickBotonVelocidad(View view){
+        VelocidadRef.setValue(Float.parseFloat(txt_velocidad_edit.getText().toString()));
+    }
+
+    public void clickBotonSensores(View view){
+        presionRef.setValue(Float.parseFloat(txt_sensores_edit.getText().toString()));
+    }
+
+    public ValueEventListener setListener(TextView txt, String UnidadMedida){
+        return (new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.getValue() != null){
+                    txt.setText(snapshot.getValue().toString() + " " + UnidadMedida);
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                txt.setText("");
+            }
         });
     }
 }
