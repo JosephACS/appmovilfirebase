@@ -5,16 +5,12 @@ plugins {
 
 android {
     namespace = "com.uteq.software.myapplication"
-    compileSdk {
-        version = release(36) {
-            minorApiLevel = 1
-        }
-    }
+    compileSdk = 37
 
     defaultConfig {
         applicationId = "com.uteq.software.myapplication"
         minSdk = 29
-        targetSdk = 36
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
@@ -37,6 +33,8 @@ android {
 }
 
 dependencies {
+    implementation(libs.play.services.maps)
+    implementation(libs.play.services.location)
     implementation(libs.activity.ktx)
     implementation(libs.appcompat)
     implementation(libs.constraintlayout)
