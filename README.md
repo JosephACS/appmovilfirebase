@@ -1,6 +1,6 @@
 # Monitoreo y Seteo de Sensores - Firebase Realtime Database
 
-Este proyecto es una aplicación Android profesional diseñada para el **monitoreo en tiempo real** y el **control remoto (seteo)** de diversos sensores (Temperatura, Humedad, Velocidad y Presión) utilizando la infraestructura de **Firebase**.
+Este proyecto es una aplicación Android profesional diseñada para el monitoreo en tiempo real y el control remoto (seteo) de diversos sensores (Temperatura, Humedad, Velocidad y Presión) y el rastreo de ubicación mediante mapas utilizando la infraestructura de Firebase.
 
 ---
 
@@ -10,58 +10,67 @@ Este proyecto es una aplicación Android profesional diseñada para el **monitor
   <img src="https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white" alt="Android" />
   <img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white" alt="Java" />
   <img src="https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=black" alt="Firebase" />
+  <img src="https://img.shields.io/badge/Google_Maps-4285F4?style=for-the-badge&logo=googlemaps&logoColor=white" alt="Google Maps" />
+  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python" />
   <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white" alt="Git" />
-  <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" />
 </p>
+
+---
+
+## Modulos Implementados
+
+### Monitoreo de Sensores
+Visualización de datos de temperatura, humedad, velocidad y presión directamente desde Firebase Realtime Database con actualización automática.
+
+### Seteo de Valores
+Interfaz para modificar los parámetros de los sensores de forma remota, permitiendo el control del sistema desde la aplicación móvil.
+
+### Rastreo GPS y Mapas
+Implementación de Google Maps SDK para visualizar la ubicación actual de un vehículo (GPR250) en tiempo real. El marcador se desplaza automáticamente siguiendo las coordenadas recibidas de Firebase.
+
+### Script de Simulación (Python)
+Desarrollo de un script externo en Python para simular el envío de coordenadas GPS y datos de sensores a Firebase mediante peticiones REST, facilitando las pruebas de movimiento en el mapa.
 
 ---
 
 ## Características Principales
 
-*   **Monitoreo en Tiempo Real:** Visualización instantánea de datos provenientes de Firebase Realtime Database.
-*   **Seteo de Valores:** Interfaz intuitiva para enviar comandos y nuevos valores a los sensores.
-*   **Interfaz Material Design:** Diseño limpio, centrado y fácil de usar, con iconos descriptivos para cada sensor.
-*   **Scroll Dinámico:** Soporte para diferentes tamaños de pantalla mediante contenedores desplazables.
-
----
-
-## Vista Previa del Layout
-
-| Monitoreo en Tiempo Real | Seteo de Valores |
-| :---: | :---: |
-| ![Monitoreo](https://via.placeholder.com/200x400?text=Monitoreo+UI) | ![Seteo](https://via.placeholder.com/200x400?text=Seteo+UI) |
+* Monitoreo en Tiempo Real: Visualización instantánea de datos provenientes de Firebase Realtime Database.
+* Seteo de Valores: Interfaz intuitiva para enviar comandos y nuevos valores a los sensores.
+* Seguimiento en Mapa: Marcadores dinámicos y animación de cámara para seguimiento de activos.
+* Interfaz Material Design: Diseño limpio, centrado y fácil de usar con iconos descriptivos.
 
 ---
 
 ## Configuración e Instalación
 
-1.  **Clonar el repositorio:**
-    ```bash
-    git clone https://github.com/JosephACS/appmovilfirebase.git
-    ```
-2.  **Configurar Firebase:**
-    *   Crea un proyecto en [Firebase Console](https://console.firebase.google.com/).
-    *   Añade una aplicación Android con el paquete `com.uteq.software.myapplication`.
-    *   Descarga el archivo `google-services.json` y colócalo en la carpeta `app/`.
-    *   Habilita **Realtime Database** y configura las reglas de lectura/escritura.
-3.  **Compilar y Ejecutar:**
-    *   Abre el proyecto en **Android Studio**.
-    *   Sincroniza el proyecto con los archivos Gradle.
-    *   Ejecuta en un emulador o dispositivo físico.
+1. Clonar el repositorio:
+   ```bash
+   git clone https://github.com/JosephACS/appmovilfirebase.git
+   ```
+
+2. Configurar Firebase:
+   * Crea un proyecto en Firebase Console.
+   * Añade una aplicación Android con el paquete com.uteq.software.myapplication.
+   * Descarga el archivo google-services.json y colócalo en la carpeta app/.
+   * Habilita Realtime Database.
+
+3. Configurar Google Maps:
+   * Obtén una API KEY desde Google Cloud Console.
+   * Agrégala en el archivo AndroidManifest.xml del proyecto.
+
+4. Ejecución del Simulador Python:
+   * Instala las dependencias: `pip install requests`
+   * Ejecuta el script: `python scripts.py`
 
 ---
 
 ## Estructura del Proyecto
 
-*   `MainActivity.java`: Lógica central, manejo de eventos de Firebase y listeners.
-*   `activity_main.xml`: Diseño de la interfaz de usuario con ScrollView y LinearLayouts.
-*   `drawable/`: Contiene los recursos visuales (`temp.png`, `water.png`, `speed.png`, `sensors.png`).
-
----
-
-## Contribuciones
-
-Las contribuciones son bienvenidas. Si tienes ideas para mejorar la aplicación o encontrar errores, siéntete libre de abrir un Issue o enviar un Pull Request.
+* MainActivity.java: Manejo de sensores y seteo de valores.
+* ActividadMapa.java: Implementación de Google Maps y rastreo en tiempo real.
+* scripts.py: Simulador de datos en Python.
+* activity_actividad_mapa.xml: Interfaz del mapa con soporte para fragmentos de Google.
 
 ---
 
